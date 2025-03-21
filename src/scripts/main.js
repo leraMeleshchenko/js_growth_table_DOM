@@ -1,15 +1,13 @@
 'use strict';
 
-// write code here
 const appendRow = document.querySelector('.append-row');
 const removeRow = document.querySelector('.remove-row');
 const appendColumn = document.querySelector('.append-column');
 const removeColumn = document.querySelector('.remove-column');
-// const field = document.querySelector('.field');
 const tbody = document.querySelector('tbody');
 const tr2 = document.querySelector('tr');
 
-appendRow.addEventListener('click', (e) => {
+appendRow.addEventListener('click', () => {
   const tr = document.createElement('tr');
 
   for (let i = 0; i < tr2.children.length; i++) {
@@ -31,11 +29,8 @@ appendRow.addEventListener('click', (e) => {
   }
 });
 
-removeRow.addEventListener('click', (e) => {
-  if (tbody.children.length > 2) {
-    tbody.removeChild(tbody.lastElementChild);
-    removeRow.disabled = false;
-  }
+removeRow.addEventListener('click', () => {
+  tbody.removeChild(tbody.lastElementChild);
 
   if (tbody.children.length <= 2) {
     removeRow.disabled = true;
@@ -62,9 +57,7 @@ appendColumn.addEventListener('click', () => {
 
 removeColumn.addEventListener('click', () => {
   Array.from(tbody.children).forEach((tr) => {
-    if (tr.children.length > 2) {
-      tr.removeChild(tr.lastElementChild);
-    }
+    tr.removeChild(tr.lastElementChild);
   });
 
   if (tbody.firstElementChild.children.length <= 2) {
